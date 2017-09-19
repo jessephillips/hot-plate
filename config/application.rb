@@ -18,8 +18,15 @@ Bundler.require(*Rails.groups)
 
 module RailsAppTemplate
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.generators do | g |
+      g.assets          false
+      g.helper          false
+      g.jbuilder        false
+      g.stylesheets     false
+      g.test_framework :rspec,
+        view_specs:     false,
+        request_specs:  false,
+        routing_specs:  false
+    end
   end
 end
