@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170919222757) do
     t.string   "username"
     t.string   "secure_id"
     t.string   "slug"
-    t.boolean  "admin?",                 default: false, null: false
+    t.boolean  "is_admin",               default: false, null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
