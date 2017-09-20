@@ -1,7 +1,5 @@
-if ENV['COVERAGE']
-  require 'simplecov'
-  SimpleCov.start 'rails'
-end
+require 'simplecov'
+SimpleCov.start 'rails'
 
 require 'factory_girl_rails'
 require 'support/factory_girl'

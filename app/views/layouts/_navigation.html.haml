@@ -9,6 +9,9 @@
       %li.nav-item
         = link_to '#', class: 'nav-link' do
           Link
+      - if current_user && current_user.is_admin
+        = link_to admin_dashboard_path, class: 'nav-link' do
+          Admin Dashboard
     %ul.navbar-nav.navbar-right
       - if current_user
         %li.dropdown.nav-link

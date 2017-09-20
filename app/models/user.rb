@@ -9,14 +9,12 @@ class User < ApplicationRecord
 
   validates :email, presence: true
 
-  after_create :_send_welcome_email
+  after_create :send_welcome_email
 
   before_validation :_ensure_secure_id
   friendly_id       :secure_id, use: [ :slugged, :history, :finders ]
 
-  private
-
-  def _send_welcome_email
+  def send_welcome_email
     UserMailer.send_welcome_email(self).deliver_later
   end
 end

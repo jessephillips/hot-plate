@@ -58,4 +58,21 @@ RSpec.describe User, type: :model do
       expect(user.secure_id).not_to eq(nil)
     end
   end
+
+  context 'given a User' do
+    before(:each) do
+      @user = create(:user)
+    end
+
+    describe 'send_welcome_email' do
+      it 'queues a welcome email' do
+        expect { @user.send_welcome_email }
+          .to have_enqueued_job.on_queue('mailers')
+      end
+
+      it 'creates an ActionMailer::DeliveryJob' do
+        expect(@user.send_welcome_email.class).to eq(ActionMailer::DeliveryJob)
+      end
+    end
+  end
 end

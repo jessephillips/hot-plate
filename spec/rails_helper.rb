@@ -10,6 +10,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'database_cleaner'
 require 'support/factory_girl'
+require 'support/devise'
 
 ActiveRecord::Migration.maintain_test_schema!
 ActiveJob::Base.queue_adapter = :test
