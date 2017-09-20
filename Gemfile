@@ -19,6 +19,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'simple_form'
 gem 'haml-rails', '~> 1.0'
 gem 'font-awesome-rails'
+gem 'meta-tags'
 
 group :development, :test do
   gem 'byebug', platform: :mri
