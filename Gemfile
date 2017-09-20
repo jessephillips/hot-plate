@@ -5,8 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'devise'
-gem 'friendly_id', '~> 5.1.0'
 gem 'rails', '~> 5.0.6'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
@@ -15,6 +13,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
+gem 'devise'
+gem 'friendly_id', '~> 5.1.0'
+gem 'simple_form'
+gem 'haml-rails', '~> 1.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
