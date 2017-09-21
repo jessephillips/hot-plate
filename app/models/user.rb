@@ -2,6 +2,8 @@ class User < ApplicationRecord
   include EnsureSecureId
   extend  FriendlyId
 
+  mount_uploader :featured_image, FeaturedImageUploader
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

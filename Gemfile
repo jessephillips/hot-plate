@@ -20,6 +20,9 @@ gem 'simple_form'
 gem 'haml-rails', '~> 1.0'
 gem 'font-awesome-rails'
 gem 'meta-tags'
+gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-aws'
+gem 'rmagick'
 
 group :development, :test do
   gem 'byebug', platform: :mri
