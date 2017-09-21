@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'dashboard' => 'dashboard#index'
+    resources :users, only: [:index, :show]
   end
 
   get 'pages/index'

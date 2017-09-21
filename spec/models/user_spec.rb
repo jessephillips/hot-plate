@@ -80,6 +80,15 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '#destroy' do
+    it 'destroys associated Activities' do
+      user = create(:user)
+      create_list(:activity, 2, user: user)
+
+      expect { user.destroy }.to change { Activity.count }.by(-3)
+    end
+  end
+
   context 'given a User' do
     before(:each) do
       @user = create(:user)

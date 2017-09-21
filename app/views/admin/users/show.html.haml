@@ -1,0 +1,20 @@
+.container
+  .pad-section
+    .box
+      = link_to admin_users_path do
+        .fa.fa-long-arrow-left
+        Back to All Users
+      %h1.text-center
+        = @user.username
+      %br
+      %table.table
+        %thead
+          %h3 Activities
+
+        %tbody
+          - @user.activities.each do |a|
+            %tr
+              %td
+                = a.description
+              %td.text-right
+                #{time_ago_in_words(a.created_at)} ago
