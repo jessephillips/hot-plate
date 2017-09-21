@@ -7,14 +7,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :users
+
   validates :email, presence: true
 
   after_create :send_welcome_email
+  after_create :track_activity
 
   before_validation :_ensure_secure_id
   friendly_id       :secure_id, use: [ :slugged, :history, :finders ]
 
   def send_welcome_email
     UserMailer.send_welcome_email(self).deliver_later
+  end
+
+  def track_activity
+    Activity.create(user: self, action: 'create', description: "#{self.username} joined our site!")
   end
 end

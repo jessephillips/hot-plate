@@ -68,6 +68,16 @@ RSpec.describe User, type: :model do
 
       expect(new_user.secure_id).not_to eq(existing_secure_id)
     end
+
+    it 'creates an Activity associated to the new User' do
+      expect { create(:user) }.to change { Activity.count }.by(1)
+    end
+
+    it 'associates the new Activity to the created user' do
+      user = create(:user)
+
+      expect(Activity.last.user_id).to eq(user.id)
+    end
   end
 
   context 'given a User' do
