@@ -57,6 +57,17 @@ RSpec.describe User, type: :model do
 
       expect(user.secure_id).not_to eq(nil)
     end
+
+    it 'ensures the secure_id is unique' do
+      existing_secure_id = 'qwer1234'
+      create(:user, secure_id: existing_secure_id)
+
+      allow(SecureRandom).to receive(:hex).and_return(existing_secure_id, SecureRandom.hex)
+
+      new_user = create(:user)
+
+      expect(new_user.secure_id).not_to eq(existing_secure_id)
+    end
   end
 
   context 'given a User' do
