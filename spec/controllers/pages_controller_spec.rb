@@ -15,4 +15,18 @@ RSpec.describe PagesController, type: :controller do
       expect(response).to render_template('index')
     end
   end
+
+  describe 'GET #get' do
+    it 'returns http success' do
+      get :get
+
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'renders the get template' do
+      get :get
+
+      expect(response).to render_template('get')
+    end
+  end
 end

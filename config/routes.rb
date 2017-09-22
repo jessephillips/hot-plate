@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   get 'pages/index'
+  get 'pages/get'
 
   root 'pages#index'
 end
