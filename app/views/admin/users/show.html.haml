@@ -17,6 +17,9 @@
           - @activities.each do |a|
             %tr
               %td
+                %span
+                  %b
+                    = @user.username
                 = a.description
               %td.text-right
                 #{time_ago_in_words(a.created_at)} ago

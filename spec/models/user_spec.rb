@@ -89,7 +89,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'given a User' do
+  context 'callbacks' do
     before(:each) do
       @user = create(:user)
     end

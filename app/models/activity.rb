@@ -13,7 +13,7 @@ class Activity < ApplicationRecord
         target = trackable.username if !!trackable.has_attribute?(:username)
         target = trackable.title    if !!trackable.has_attribute?(:title)
 
-        self.description = "#{person} #{verb} #{target}."
+        self.description = "#{verb} #{target}."
       else
         self.description = 'Unspecified Activity.'
       end

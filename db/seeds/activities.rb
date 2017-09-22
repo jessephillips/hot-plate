@@ -13,7 +13,7 @@ verbs   = [ 'walked',
             'had a fine morning with',
             'gave the bad news to',
             'regretted having a friendship with',
-            'sneezed on',
+            'sneezed at',
             'updated',
             'spoke in hushed tones to',
             'decaffed',
@@ -25,7 +25,6 @@ verbs   = [ 'walked',
             'planted',
             'high fived',
           ]
-
 
 targets = [ 'an idiot',
             'a toaster',
@@ -52,11 +51,12 @@ targets = [ 'an idiot',
             'space',
             'random hippies',
             'the internet',
+            'your face',
           ]
 
-User.all.each do |u|
-  rand(8..12).times do
-    description = "#{u.username} #{verbs.sample} #{targets.sample}."
+17.times do
+  User.all.order('random()').each do |u|
+    description = "#{verbs.sample} #{targets.sample}."
     u.activities.create(description: description)
   end
 end

@@ -24,6 +24,6 @@ class User < ApplicationRecord
   end
 
   def track_activity
-    Activity.create(user: self, action: 'create', description: "#{self.username} joined our site!")
+    Activity.create(user: self, action: 'create', description: "joined our site!")
   end
 end

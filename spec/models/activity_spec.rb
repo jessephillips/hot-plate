@@ -29,7 +29,7 @@ RSpec.describe Activity, type: :model do
         trackable = create(:user, username: 'Piper')
         activity  = create(:activity, user: user, trackable: trackable, action: 'walk', description: nil)
 
-        expected_description = "Ben walked Piper."
+        expected_description = "walked Piper."
 
         expect(activity.description).to eq(expected_description)
       end
@@ -41,7 +41,7 @@ RSpec.describe Activity, type: :model do
         trackable = create(:activity)
         activity  = create(:activity, user: user, trackable: trackable, action: 'create', description: nil)
 
-        expected_description = "Ben created an Activity."
+        expected_description = "created an Activity."
 
         expect(activity.description).to eq(expected_description)
       end
