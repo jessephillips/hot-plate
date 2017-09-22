@@ -1,7 +1,11 @@
 .container
   .pad-section
     .box
-      %h1.text-center Users
+      .text-center
+        %h1 Users
+
+        = paginate @users
+
       %br
       %table.table
         %thead
@@ -33,3 +37,5 @@
               %td.text-right
                 = link_to admin_user_path(u) do
                   View Details
+
+      = paginate @users

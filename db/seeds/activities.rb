@@ -1,0 +1,62 @@
+verbs   = [ 'walked',
+            'milked',
+            'jumped over',
+            'had a duel with',
+            'force choked',
+            'parambulated with',
+            'won a friendly debate against',
+            'blindsided',
+            'tripped',
+            'bamboozled',
+            'hornswoggled',
+            'burgled',
+            'had a fine morning with',
+            'gave the bad news to',
+            'regretted having a friendship with',
+            'sneezed on',
+            'updated',
+            'spoke in hushed tones to',
+            'decaffed',
+            'bribed',
+            'conjured',
+            'banished',
+            'embarrassed',
+            'confounded',
+            'planted',
+            'high fived',
+          ]
+
+
+targets = [ 'an idiot',
+            'a toaster',
+            'some legend',
+            'a psychic',
+            'a knife',
+            'a sandwich',
+            'lettuce',
+            'the kitty',
+            'a friendly grandma',
+            'the candlestick maker',
+            'a coffee pot',
+            'the party of the first part',
+            'laser beams',
+            'a dragon',
+            'a striped hyena',
+            'a llama',
+            'a jedi',
+            'a wizard',
+            'a potted plant',
+            'a dastardly death knight',
+            'a musty orphan',
+            'an entire planet',
+            'space',
+            'random hippies',
+            'the internet',
+          ]
+
+User.all.each do |u|
+  rand(8..12).times do
+    description = "#{u.username} #{verbs.sample} #{targets.sample}."
+    u.activities.create(description: description)
+  end
+end

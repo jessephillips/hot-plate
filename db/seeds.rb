@@ -1,5 +1,6 @@
 unless Rails.env.production?
   [ #seed_file_name
+    'activities',
     'users',
   ].each do |seed|
     seed_file = "#{Rails.root}/db/seeds/#{seed}.rb"
