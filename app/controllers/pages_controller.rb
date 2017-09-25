@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def get
   end
+
+  def readme
+  end
 end

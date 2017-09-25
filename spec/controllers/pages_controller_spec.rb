@@ -29,4 +29,18 @@ RSpec.describe PagesController, type: :controller do
       expect(response).to render_template('get')
     end
   end
+
+  describe 'GET #readme' do
+    it 'returns http success' do
+      get :readme
+
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'renders the readme template' do
+      get :readme
+
+      expect(response).to render_template('readme')
+    end
+  end
 end
