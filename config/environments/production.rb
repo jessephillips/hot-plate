@@ -52,6 +52,21 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "rails-app-template_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+  #default url for mailers
+  config.action_mailer.default_url_options = { host: ENV['DEFAULT_URL'] }
+
+  Rails.application.routes.default_url_options[:host] = ENV['DEFAULT_URL']
+
+  config.action_mailer.smtp_settings = {
+    user_name: 'SMTP_Injection',
+    password: ENV['SMTP_PASSWORD'],
+    address: 'smtp.sparkpostmail.com',
+    port: 587,
+    enable_starttls_auto: true,
+    format: :html,
+    from: "support@#{ENV['DEFAULT_URL']}"
+  }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
