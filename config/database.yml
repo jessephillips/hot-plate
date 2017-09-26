@@ -29,6 +29,10 @@ test:
   <<: *default
   database: rails-app-template-test
 
+development:
+  <<: *default
+  database: rails-app-template-staging
+
 production:
   <<: *default
   database: rails-app-template-production
