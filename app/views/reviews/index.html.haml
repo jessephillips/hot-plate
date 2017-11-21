@@ -1,0 +1,31 @@
+%h1 Listing reviews
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Price in cents
+      %th Rating
+      %th Featured image
+      %th Belongs to
+      %th
+      %th
+      %th
+
+  %tbody
+    - @reviews.each do |review|
+      %tr
+        %td= review.name
+        %td= review.description
+        %td= review.price_in_cents
+        %td= review.rating
+        %td= review.featured_image
+        %td= review.belongs_to
+        %td= link_to 'Show', review
+        %td= link_to 'Edit', edit_review_path(review)
+        %td= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Review', new_review_path

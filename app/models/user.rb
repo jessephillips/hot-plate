@@ -10,6 +10,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :activities, dependent: :destroy
+  has_many :reviews
 
   validates :email, presence: true
 

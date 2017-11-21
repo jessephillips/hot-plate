@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @review.name
+%p
+  %b Description:
+  = @review.description
+%p
+  %b Price in cents:
+  = @review.price_in_cents
+%p
+  %b Rating:
+  = @review.rating
+%p
+  %b Featured image:
+  = @review.featured_image
+%p
+  %b Belongs to:
+  = @review.belongs_to
+
+= link_to 'Edit', edit_review_path(@review)
+\|
+= link_to 'Back', reviews_path
