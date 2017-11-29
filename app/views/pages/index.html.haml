@@ -1,5 +1,8 @@
-%h1 The Clorb Abides
+%h1 Create a Review
 %p With beasts, and djins, lore by chagrinned fighters adds admonishment best only amongst benefit.  Ascending psycopathic matters again resting us, paying anything, adding as merky scrapings bringing better stigma.  Appearance sunders ozones, azaleas plundered beneath us.
+
+%p= link_to 'Create a Review', new_review_path
+
 - if current_user.present?
   %p= link_to 'Logout', destroy_user_session_url, method: :delete
 - else

@@ -12,6 +12,9 @@
       %li.nav-item
         = link_to pages_readme_path, class: 'nav-link' do
           ReadMe
+      %li.nav-item
+        = link_to reviews_path, class: 'nav-link' do
+          Reviews
       - if current_user && current_user.is_admin
         = link_to admin_dashboard_path, class: 'nav-link' do
           Admin Dashboard

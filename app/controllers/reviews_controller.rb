@@ -26,23 +26,16 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
-        format.json { render :show, status: :ok, location: @review }
-      else
-        format.html { render :edit }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
+    if @review.update(review_params)
+      redirect_to @review, notice: 'Review was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @review.destroy
-    respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to reviews_url, notice: 'Review was successfully destroyed.'
   end
 
   private
@@ -52,6 +45,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:name, :description, :price_in_cents, :rating, :featured_image, :belongs_to)
+    params.require(:review).permit(:name, :description, :price_in_cents, :rating, :featured_image)
   end
 end

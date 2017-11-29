@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :reviews
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords' }
 
      ###    ########  ##     ## #### ##    ##
@@ -19,6 +18,11 @@ Rails.application.routes.draw do
   get 'pages/index'
   get 'pages/get'
   get 'pages/readme'
+
+  resources :users, only: [] do
+    resources :reviews, controller: :user_reviews
+  end
+  resources :reviews
 
   root 'pages#index'
 end

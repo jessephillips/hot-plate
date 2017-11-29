@@ -21,7 +21,7 @@
         %td= review.price_in_cents
         %td= review.rating
         %td= review.featured_image
-        %td= review.belongs_to
+        %td= review.user
         %td= link_to 'Show', review
         %td= link_to 'Edit', edit_review_path(review)
         %td= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' }
